@@ -1,103 +1,92 @@
-import Image from "next/image";
+import ProductCard from "../components/ProductCard";
+
+const products = [
+  {
+    id: "1",
+    name: "Camisa Banana Bipolar",
+    description: `
+        Todas as nossas camisetas são confeccionadas em malha 100% algodão,
+        fio 30.1 penteado e com costura ombro a ombro.
+
+        Medidas:
+        P = 71cm x 55cm
+        M = 74cm x 57cm
+        G = 78cm x 60cm
+        GG = 81cm x 63cm
+        EXG = 85cm x 66cm
+
+        Ao comprar você:
+        - Ganha kit exclusivo com 2 adesivos em vinil fosco, 1 adesivo holográfico e o Zine "O Fim da Banana Bipolar - A Verdade Sobre o Fim";
+        
+        - Recebe 10% de desconto na camisa;
+        
+        - Ajuda a banda diretamente a financiar os próximos lançamentos e shows;
+        
+        - Entra pro nosso grupo/lista de apoiadores. ❤
+`,
+    image:
+      "https://img.notionusercontent.com/s3/prod-files-secure%2Ff072c086-4e67-421c-b612-5d9f43ae2f7f%2Ffecc701b-4c97-4deb-8ebf-9db48c083081%2FSAVE_20250116_100755.jpg/size/w=1420?exp=1750431106&sig=5bUxR8In3JvsfDuUJaFEAh74KZuuY4zNID2osOchWAw&id=1772611f-0ec9-80ed-96ed-d19a7d5bbd14&table=block",
+    price: 7000,
+  },
+  {
+    id: "2",
+    name: "“Espectrificação”, adesivo em vinil fosco 5,5cm x 5,5cm",
+    description: "",
+    image:
+      "https://img.notionusercontent.com/s3/prod-files-secure%2Ff072c086-4e67-421c-b612-5d9f43ae2f7f%2F2a81205e-147c-4b61-8e75-c1ef61381403%2FImagem_do_WhatsApp_de_2025-01-13_(s)_00.56.38_09dacc39.jpg/size/w=1360?exp=1750431309&sig=UL_ujaSxLcoGV3oizz_p0GkrNEI2fcSqm7yZRmpJHo8&id=19a2611f-0ec9-800c-ae71-e6091d47aefd&table=block",
+    price: 500,
+  },
+  {
+    id: "3",
+    name: "Espectros & Banana, adesivo em vinil fosco 5,5cm x 8cm",
+    description: "",
+    image:
+      "https://img.notionusercontent.com/s3/prod-files-secure%2Ff072c086-4e67-421c-b612-5d9f43ae2f7f%2F3019472a-b56d-472a-af21-d9a14569993e%2FImagem_do_WhatsApp_de_2025-01-13_(s)_00.56.37_c4ac4044.jpg/size/w=1360?exp=1750432504&sig=_uCxF7zsVnahiArudIAnOyacHY0YBB93Vebr2UkZt4o&id=19a2611f-0ec9-8019-bfdc-e442bf338243&table=block",
+    price: 500,
+  },
+  {
+    id: "4",
+    name: "Espectros devorando o mundo, adesivo holográfico 7cm x 4cm",
+    description: "",
+    image:
+      "https://img.notionusercontent.com/s3/prod-files-secure%2Ff072c086-4e67-421c-b612-5d9f43ae2f7f%2F0a85dc78-71d2-46e3-81d0-294f269e5211%2FImagem_do_WhatsApp_de_2025-01-13_(s)_00.56.38_df9d9e65.jpg/size/w=1360?exp=1750432536&sig=b3SF_iUlsW-y9Ozw_ptlJIah5vAJ4Z3I_mhU1H3D1cM&id=19a2611f-0ec9-8029-a046-ff7bb963caf0&table=block",
+    price: 500,
+  },
+  {
+    id: "5",
+    name: "Zine “O Fim da Banana Bipolar - A Verdade Sobre o Fim”",
+    description: "",
+    image:
+      "https://img.notionusercontent.com/s3/prod-files-secure%2Ff072c086-4e67-421c-b612-5d9f43ae2f7f%2F91bd9cfc-d0cd-4d9c-9501-534e00d46f26%2Fimage.png/size/w=1160?exp=1750432588&sig=jb8cj1Gun_lIb1CnLX4r2QIOZ_kkHUcWMrooe6FwRiM&id=19a2611f-0ec9-8078-8002-ea64b0fc42df&table=block",
+    price: 500,
+  },
+  {
+    id: "6",
+    name: "Ecobag de ‘Cigarro’",
+    description: `
+      Comprimento: 30 cm,
+      Largura: 30 cm,
+      Altura da Alça: 60 cm`,
+    image:
+      "https://img.notionusercontent.com/s3/prod-files-secure%2Ff072c086-4e67-421c-b612-5d9f43ae2f7f%2Fdd6736fb-62ae-4c28-8ed4-ca538c02d65c%2Fecobag_copiar.jpg/size/w=1420?exp=1750432612&sig=NSkteLYhnrdisnAlqTQXsNyyR74oHsaW-7_BekNUmwg&id=1bc2611f-0ec9-8030-89f4-e00b1e5e365d&table=block",
+    price: 4000,
+  },
+  {
+    id: "7",
+    name: "Kit Completo com Desconto",
+    description: "",
+    image:
+      "https://img.notionusercontent.com/s3/prod-files-secure%2Ff072c086-4e67-421c-b612-5d9f43ae2f7f%2F1de7c1f1-fce3-4a4c-a1a7-a45df0351008%2Fsasa.jpg/size/w=2000?exp=1750433305&sig=UdcFhxXy42YdB1OIh5mVr7o9-kGWMaqavFXkkXzknNQ&id=1772611f-0ec9-80a7-9db7-f30e8a579bbf&table=block",
+    price: 11000,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <main className="max-w-5xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </main>
   );
 }
