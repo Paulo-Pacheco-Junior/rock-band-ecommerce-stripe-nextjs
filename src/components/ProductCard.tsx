@@ -1,11 +1,11 @@
 "use client";
-import { loadStripe } from "@stripe/stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
 import React from "react";
 import Image from "next/image";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-);
+// const stripePromise = loadStripe(
+//   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+// );
 
 type Product = {
   id: string;
@@ -21,17 +21,22 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({ product, priority }: ProductCardProps) {
-  async function handleBuy() {
-    const stripe = await stripePromise;
+  // async function handleBuy() {
+  //   const stripe = await stripePromise;
 
-    const res = await fetch("/api/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ productId: product.id }),
-    });
+  //   const res = await fetch("/api/checkout", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ productId: product.id }),
+  //   });
 
-    const { sessionId } = await res.json();
-    await stripe?.redirectToCheckout({ sessionId });
+  //   const { sessionId } = await res.json();
+  //   await stripe?.redirectToCheckout({ sessionId });
+  // }
+
+  function handleBuy() {
+    window.location.href =
+      "https://docs.google.com/forms/d/e/1FAIpQLScSqOV7v5SPySolCPqifNJk9CqfLthm1QGuETFeQocH9S6rAg/viewform?pli=1";
   }
 
   return (
