@@ -17,9 +17,10 @@ type Product = {
 
 type ProductCardProps = {
   product: Product;
+  priority?: boolean;
 };
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, priority }: ProductCardProps) {
   async function handleBuy() {
     const stripe = await stripePromise;
 
@@ -42,6 +43,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           fill
           className="object-contain"
           sizes="100%"
+          priority={priority}
         />
       </div>
 
