@@ -34,9 +34,6 @@ export default function Header() {
           <Link href="#apoiadores" className="hover:text-yellow-400">
             Apoiadores
           </Link>
-          <Link href="#contato" className="hover:text-yellow-400">
-            Contato
-          </Link>
         </nav>
 
         {/* Menu mobile */}
@@ -63,9 +60,6 @@ export default function Header() {
             </Link>
             <Link href="#apoiadores" className="hover:text-yellow-400">
               Apoiadores
-            </Link>
-            <Link href="#contato" className="hover:text-yellow-400">
-              Contato
             </Link>
           </nav>
         </div>

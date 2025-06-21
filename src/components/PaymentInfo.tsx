@@ -4,7 +4,7 @@ export default function PaymentInfo() {
   return (
     <section
       id="pix"
-      className="border border-gray-700 border-0_5 p-6 rounded shadow-sm max-w-xl mx-auto md:max-w-4xl bg-neutral-800 text-gray-100 mb-12"
+      className="border border-gray-700 border-0_5 p-6 rounded shadow-sm max-w-xl mx-auto md:max-w-4xl bg-neutral-800 text-gray-100 mb-4"
     >
       <p className="mb-4">
         - Envie o comprovante para{" "}

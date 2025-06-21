@@ -4,6 +4,7 @@ import { products } from "@/data/products";
 import Header from "@/components/Header";
 import HeroMessage from "@/components/HeroMessage";
 import HeroBanner from "@/components/HeroBanner";
+import Fans from "@/components/Fans";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         ))}
       </main>
       <PaymentInfo />
+      <Fans />
     </>
   );
 }
