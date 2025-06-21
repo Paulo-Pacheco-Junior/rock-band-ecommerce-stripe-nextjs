@@ -1,6 +1,6 @@
 export default function Fans() {
   return (
-    <section id="fans" className=" px-6 py-12 mb-12">
+    <section id="apoiadores" className=" px-6 py-12 mb-12">
       <div className="max-w-3xl mx-auto ">
         <h2 className="text-3xl font-bold mb-4">Apoiadores:</h2>
 
