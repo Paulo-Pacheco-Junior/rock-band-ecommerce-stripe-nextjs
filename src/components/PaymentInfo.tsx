@@ -2,7 +2,10 @@ import React from "react";
 
 export default function PaymentInfo() {
   return (
-    <div className="border border-gray-700 border-0_5 p-6 rounded shadow-sm max-w-xl mx-auto bg-gray-900 text-gray-100 mb-12">
+    <section
+      id="pix"
+      className="border border-gray-700 border-0_5 p-6 rounded shadow-sm max-w-xl mx-auto md:max-w-4xl bg-neutral-800 text-gray-100 mb-12"
+    >
       <p className="mb-4">
         - Envie o comprovante para{" "}
         <a
@@ -31,6 +34,6 @@ export default function PaymentInfo() {
       <p className="mt-4 italic text-sm text-gray-400">
         Não se esqueça de nos enviar o comprovante! 😉
       </p>
-    </div>
+    </section>
   );
 }

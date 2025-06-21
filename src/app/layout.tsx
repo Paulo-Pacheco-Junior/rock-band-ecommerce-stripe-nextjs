@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "Merchandising Banana Bipolar",
     images: [
       {
-        url: "https://bananabipolar.vercel.app/images/camisa-banana-bipolar.webp",
+        url: "https://bananabipolar.vercel.app/images/camiseta-banana-bipolar.webp",
         width: 1200,
         height: 630,
         alt: "Camiseta Banana Bipolar",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description:
       "Apoie a banda e adquira nossos produtos exclusivos. Camisetas, adesivos, zine e muito mais!",
     images: [
-      "https://bananabipolar.vercel.app/images/camisa-banana-bipolar.webp",
+      "https://bananabipolar.vercel.app/images/camiseta-banana-bipolar.webp",
     ],
   },
 };
