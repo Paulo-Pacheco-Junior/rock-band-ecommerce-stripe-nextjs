@@ -12,10 +12,8 @@ export default function HeroBanner() {
         className="brightness-[0.7]"
       />
 
-      {/* Imagem sobreposta central */}
-
       <Image
-        src="/images/logo2.webp" // Substitua pela imagem pequena
+        src="/images/logo2.webp"
         alt="Selo Banana Bipolar"
         width={120}
         height={120}

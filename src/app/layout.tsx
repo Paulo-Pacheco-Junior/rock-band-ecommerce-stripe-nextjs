@@ -38,6 +38,14 @@ export const metadata: Metadata = {
       "https://bananabipolar.vercel.app/images/camiseta-banana-bipolar.webp",
     ],
   },
+  icons: {
+    icon: [
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", rel: "shortcut icon" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
