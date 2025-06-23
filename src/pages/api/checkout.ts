@@ -1,15 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import stripe from "../../lib/stripe";
-
-const products = [
-  {
-    id: "",
-    name: "",
-    description: "",
-    image: "",
-    price: 0,
-  },
-];
+import { products } from "@/data/products";
 
 export default async function handler(
   req: NextApiRequest,
@@ -26,18 +17,10 @@ export default async function handler(
 
   try {
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
+      payment_method_types: ["card", "boleto"],
       line_items: [
         {
-          price_data: {
-            currency: "brl",
-            product_data: {
-              name: product.name,
-              description: product.description,
-              images: [product.image],
-            },
-            unit_amount: product.price,
-          },
+          price: product.priceId,
           quantity: 1,
         },
       ],

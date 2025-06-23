@@ -6,8 +6,8 @@ export default function HeroBanner() {
       <Image
         src="/images/banner.webp"
         alt="Banner Banana Bipolar"
-        layout="fill"
-        objectFit="cover"
+        fill
+        style={{ objectFit: "cover" }}
         priority
         className="brightness-[0.7]"
       />
