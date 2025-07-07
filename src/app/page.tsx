@@ -8,7 +8,7 @@ import Fans from "@/components/Fans";
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-yellow-400 ">
       <Header />
       <HeroBanner />
       <HeroMessage />
@@ -26,6 +26,6 @@ export default function Home() {
       </main>
       <PaymentInfo />
       <Fans />
-    </>
+    </div>
   );
 }

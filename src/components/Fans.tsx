@@ -1,10 +1,13 @@
 export default function Fans() {
   return (
-    <section id="apoiadores" className=" px-6 py-12 mb-12">
+    <section
+      id="apoiadores"
+      className="bg-yellow-400 text-neutral-900 px-6 py-12 mb-12"
+    >
       <div className="max-w-3xl mx-auto ">
         <h2 className="text-3xl font-bold mb-4">Apoiadores:</h2>
 
-        <p className="bg-neutral-800 italic p-4 max-w-md mb-6">
+        <p className="bg-yellow-500 italic p-4 rounded border border-yellow-600 max-w-md mb-6 text-neutral-800">
           Apoiadores que compraram na pré-venda e tornaram tudo possível.
         </p>
 
