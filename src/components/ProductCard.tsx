@@ -1,18 +1,16 @@
 "use client";
-import { loadStripe } from "@stripe/stripe-js";
+
 import React from "react";
 import Image from "next/image";
-
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-);
+import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
 
 type Product = {
   id: string;
   name: string;
   description?: string;
   price: number;
-  image?: string;
+  image: string;
 };
 
 type ProductCardProps = {
@@ -21,22 +19,12 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({ product, priority }: ProductCardProps) {
-  async function handleBuy() {
-    const stripe = await stripePromise;
+  const { addItem } = useCart();
+  const router = useRouter();
 
-    const res = await fetch("/api/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ productId: product.id }),
-    });
-
-    if (!res.ok) {
-      alert("Erro ao iniciar compra");
-      return;
-    }
-
-    const { sessionId } = await res.json();
-    await stripe?.redirectToCheckout({ sessionId });
+  function handleAddToCart() {
+    addItem(product);
+    router.push("/cart");
   }
 
   return (
@@ -59,10 +47,16 @@ export default function ProductCard({ product, priority }: ProductCardProps) {
       </p>
 
       <button
-        onClick={handleBuy}
-        className="bg-white text-neutral-900 font-semibold py-2 rounded hover:bg-gray-300 transition"
+        onClick={handleAddToCart}
+        className="bg-white text-neutral-900 font-semibold py-2 mb-2 rounded hover:bg-gray-300 transition"
       >
         Comprar por R$ {product.price / 100}
+      </button>
+      <button
+        onClick={handleAddToCart}
+        className="bg-white text-neutral-900 font-semibold py-2 rounded hover:bg-gray-300 transition"
+      >
+        Adicionar ao carrinho
       </button>
     </div>
   );
